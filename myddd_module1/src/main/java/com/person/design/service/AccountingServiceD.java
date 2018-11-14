@@ -25,8 +25,7 @@ public class AccountingServiceD implements AccountingService {
         Predicate<Account> predicate = account -> account.getBalance().subtract(srcAccount.getFrozenAmount()).compareTo(amount) > 0;
         srcAccount.checkBalance(predicate,"余额不足");
         srcAccount.transferTo(amount,destAccount);
-        accountRepository.save(srcAccount.getTransactionDetailses().get(0));
-        accountRepository.save(destAccount.getTransactionDetailses().get(0));
-        System.out.println("work done......");
+        accountRepository.saveTransactionDetails(srcAccount.getTransactionDetailses().get(0));
+        accountRepository.saveTransactionDetails(destAccount.getTransactionDetailses().get(0));
     }
 }

@@ -5,6 +5,8 @@ package com.person.desigin;
 import com.person.design.repository.AccountRepository;
 import com.person.design.service.AccountingService;
 import com.person.design.vo.Account;
+import com.person.design.vo.AccountTransactionDetails;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +35,7 @@ public class AccountingServiceDTest {
     public void initContext(){
         Account srcAccount = new Account(srcId,new BigDecimal(100));
         Account destAccount = new Account(destId,new BigDecimal(10));
-        srcAccount.setActive(false);
+        srcAccount.setActive(true);
         destAccount.setActive(true);
         accountRepository.createAccount2Repository(srcAccount);
         accountRepository.createAccount2Repository(destAccount);
@@ -41,7 +43,8 @@ public class AccountingServiceDTest {
 
     @Test
     public void testTransfer(){
-        accountServiceD.transfer(10000L,10086L,new BigDecimal(1));
-
+        accountServiceD.transfer(10000L,10086L,new BigDecimal(1000));
+        AccountTransactionDetails details = accountRepository.queryAccountTransactionDetails(srcId).get(0);
+        System.out.println(details.toJsonString());
     }
 }

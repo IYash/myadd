@@ -38,6 +38,6 @@ public class DefaultAccountingService implements AccountingService{
         destAccount.setBalance(destAccount.getBalance().add(amount));
         //需求1.0.2
         AccountTransactionDetails details = new AccountTransactionDetails();
-        accountRepository.save(details);
+        accountRepository.saveTransactionDetails(details);
     }
 }

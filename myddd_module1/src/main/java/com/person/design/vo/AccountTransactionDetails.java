@@ -1,5 +1,6 @@
 package com.person.design.vo;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
@@ -17,7 +18,7 @@ public class AccountTransactionDetails implements Serializable{
 
     private static final long serialVersionUID = 1771105531886633463L;
     private Long id;
-    private Account account;
+    private Long accountId;//注：如果使用Account进行关联的话要注意重写toString方法
     private String transactionType;
     private BigDecimal transactionAmount;
     private Date transactionTime;
@@ -33,8 +34,8 @@ public class AccountTransactionDetails implements Serializable{
         RECEIPTS,EXPENDITURE
     }
 
-    public AccountTransactionDetails account(Account account) {
-        this.account = account;
+    public AccountTransactionDetails accountId(Long accountId) {
+        this.accountId = accountId;
         return this;
     }
     public AccountTransactionDetails transactionType(String transactionType){
@@ -50,4 +51,7 @@ public class AccountTransactionDetails implements Serializable{
         return this;
     }
 
+    public String toJsonString(){
+        return JSONObject.toJSONString(this);
+    }
 }

@@ -92,7 +92,7 @@ public class Account implements Serializable{
         Preconditions.checkNotNull(transactionType,"交易类型为空");
         Supplier<AccountTransactionDetails> supplier = AccountTransactionDetails::new;
         AccountTransactionDetails details = supplier.get();
-        details.account(this)
+        details.accountId(this.getAccountId())
                 .transactionType(transactionType)
                 .transactionAmount(transactionAmount)
                 .transactionTime(transactionDate);

@@ -18,3 +18,8 @@
 它具有术语自己职责范围之内的行为，这些行为封装了其领域内的领域
 业务逻辑
 
+参考：
+设计案例[https://kb.cnblogs.com/page/522125/]
+浅析VO.DTO.DO.PO的概念，区别和用处[https://kb.cnblogs.com/page/522348/]
+
+

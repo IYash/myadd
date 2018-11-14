@@ -6,7 +6,6 @@ import com.person.design.repository.AccountRepository;
 import com.person.design.service.AccountingService;
 import com.person.design.vo.Account;
 import com.person.design.vo.AccountTransactionDetails;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
